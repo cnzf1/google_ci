@@ -32,6 +32,8 @@ jobs:
           docker tag registry.opensource.zalan.do/acid/postgres-operator:v1.10.1 cnzf/library:acid-postgres-operator-v1.10.1
           docker pull registry.opensource.zalan.do/acid/postgres-operator-ui:v1.10.1
           docker tag registry.opensource.zalan.do/acid/postgres-operator-ui:v1.10.1 cnzf/library:acid-postgres-operator-ui-v1.10.1
+          docker pull ghcr.io/zalando/spilo-15:3.0-p1
+          docker tag ghcr.io/zalando/spilo-15:3.0-p1 cnzf/library:zalando-spilo-15-v3.0-p1
       
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -44,4 +46,5 @@ jobs:
         run: |
           docker push cnzf/library:acid-postgres-operator-v1.10.1
           docker push cnzf/library:acid-postgres-operator-ui-v1.10.1
+          docker push cnzf/library:zalando-spilo-15-v3.0-p1
 
