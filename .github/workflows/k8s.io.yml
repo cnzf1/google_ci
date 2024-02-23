@@ -43,6 +43,8 @@ jobs:
           docker tag registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0 cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.8.0
           docker pull registry.k8s.io/sig-storage/livenessprobe:v2.3.0
           docker tag registry.k8s.io/sig-storage/livenessprobe:v2.3.0 cnzf/k8s.io:sig-storage.livenessprobe.v2.3.0
+          docker pull registry.k8s.io/sig-storage/livenessprobe:v2.10.0
+          docker tag registry.k8s.io/sig-storage/livenessprobe:v2.10.0 cnzf/k8s.io:sig-storage.livenessprobe.v2.10.0
       
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -60,4 +62,5 @@ jobs:
           docker push cnzf/k8s.io:sig-storage.csi-provisioner.v3.5.0
           docker push cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.8.0
           docker push cnzf/k8s.io:sig-storage.livenessprobe.v2.3.0
+          docker push cnzf/k8s.io:sig-storage.livenessprobe.v2.10.0
 
