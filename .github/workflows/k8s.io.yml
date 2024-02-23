@@ -29,17 +29,20 @@ jobs:
       - name: Run a multi-line script
         run: |
           docker pull registry.k8s.io/sig-storage/snapshot-controller:v6.2.2
+          docker tag registry.k8s.io/sig-storage/snapshot-controller:v6.2.2 cnzf/k8s.io:sig-storage.snapshot-controller.v6.2.2
+          # openebs cstor
           docker pull registry.k8s.io/sig-storage/csi-snapshotter:v6.2.2
           docker pull registry.k8s.io/sig-storage/csi-resizer:v1.8.0
           docker pull registry.k8s.io/sig-storage/csi-attacher:v4.3.0
           docker pull registry.k8s.io/sig-storage/csi-provisioner:v3.5.0
           docker pull registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0
-          docker tag registry.k8s.io/sig-storage/snapshot-controller:v6.2.2 cnzf/k8s.io:sig-storage.snapshot-controller.v6.2.2
           docker tag registry.k8s.io/sig-storage/csi-snapshotter:v6.2.2 cnzf/k8s.io:sig-storage.csi-snapshotter.v6.2.2
           docker tag registry.k8s.io/sig-storage/csi-resizer:v1.8.0 cnzf/k8s.io:sig-storage.csi-resizer.v1.8.0
           docker tag registry.k8s.io/sig-storage/csi-attacher:v4.3.0 cnzf/k8s.io:sig-storage.csi-attacher.v4.3.0
           docker tag registry.k8s.io/sig-storage/csi-provisioner:v3.5.0 cnzf/k8s.io:sig-storage.csi-provisioner.v3.5.0
           docker tag registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0 cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.8.0
+          docker pull registry.k8s.io/sig-storage/livenessprobe:v2.3.0
+          docker tag registry.k8s.io/sig-storage/livenessprobe:v2.3.0 cnzf/k8s.io:sig-storage.livenessprobe.v2.3.0
       
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -56,4 +59,5 @@ jobs:
           docker push cnzf/k8s.io:sig-storage.csi-attacher.v4.3.0
           docker push cnzf/k8s.io:sig-storage.csi-provisioner.v3.5.0
           docker push cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.8.0
+          docker push cnzf/k8s.io:sig-storage.livenessprobe.v2.3.0
 
