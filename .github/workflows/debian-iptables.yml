@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI-debian-iptables
+name: ci-debian-iptables
 
 # Controls when the workflow will run
 on:
