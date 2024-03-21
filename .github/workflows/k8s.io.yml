@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI-k8s.io
+name: ci-k8s.io
 
 # Controls when the workflow will run
 on:
@@ -30,21 +30,37 @@ jobs:
         run: |
           docker pull registry.k8s.io/sig-storage/snapshot-controller:v6.2.2
           docker tag registry.k8s.io/sig-storage/snapshot-controller:v6.2.2 cnzf/k8s.io:sig-storage.snapshot-controller.v6.2.2
-          # openebs cstor
-          docker pull registry.k8s.io/sig-storage/csi-snapshotter:v6.2.2
-          docker pull registry.k8s.io/sig-storage/csi-resizer:v1.8.0
+
+          docker pull registry.k8s.io/sig-storage/csi-attacher:v4.1.0
+          docker tag registry.k8s.io/sig-storage/csi-attacher:v4.1.0 cnzf/k8s.io:sig-storage.csi-attacher.v4.1.0
           docker pull registry.k8s.io/sig-storage/csi-attacher:v4.3.0
-          docker pull registry.k8s.io/sig-storage/csi-provisioner:v3.5.0
-          docker pull registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0
-          docker tag registry.k8s.io/sig-storage/csi-snapshotter:v6.2.2 cnzf/k8s.io:sig-storage.csi-snapshotter.v6.2.2
-          docker tag registry.k8s.io/sig-storage/csi-resizer:v1.8.0 cnzf/k8s.io:sig-storage.csi-resizer.v1.8.0
           docker tag registry.k8s.io/sig-storage/csi-attacher:v4.3.0 cnzf/k8s.io:sig-storage.csi-attacher.v4.3.0
+
+          docker pull registry.k8s.io/sig-storage/csi-snapshotter:v6.2.1
+          docker tag registry.k8s.io/sig-storage/csi-snapshotter:v6.2.1 cnzf/k8s.io:sig-storage.csi-snapshotter.v6.2.1
+          docker pull registry.k8s.io/sig-storage/csi-snapshotter:v6.2.2
+          docker tag registry.k8s.io/sig-storage/csi-snapshotter:v6.2.2 cnzf/k8s.io:sig-storage.csi-snapshotter.v6.2.2
+
+          docker pull registry.k8s.io/sig-storage/csi-resizer:v1.7.0
+          docker tag registry.k8s.io/sig-storage/csi-resizer:v1.7.0 cnzf/k8s.io:sig-storage.csi-resizer.v1.7.0
+          docker pull registry.k8s.io/sig-storage/csi-resizer:v1.8.0
+          docker tag registry.k8s.io/sig-storage/csi-resizer:v1.8.0 cnzf/k8s.io:sig-storage.csi-resizer.v1.8.0
+
+          docker pull registry.k8s.io/sig-storage/csi-provisioner:v3.4.0
+          docker tag registry.k8s.io/sig-storage/csi-provisioner:v3.4.0 cnzf/k8s.io:sig-storage.csi-provisioner.v3.4.0
+          docker pull registry.k8s.io/sig-storage/csi-provisioner:v3.5.0
           docker tag registry.k8s.io/sig-storage/csi-provisioner:v3.5.0 cnzf/k8s.io:sig-storage.csi-provisioner.v3.5.0
+
+          docker pull registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.7.0
+          docker tag registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.7.0 cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.7.0
+          docker pull registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0
           docker tag registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0 cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.8.0
+
           docker pull registry.k8s.io/sig-storage/livenessprobe:v2.3.0
           docker tag registry.k8s.io/sig-storage/livenessprobe:v2.3.0 cnzf/k8s.io:sig-storage.livenessprobe.v2.3.0
           docker pull registry.k8s.io/sig-storage/livenessprobe:v2.10.0
           docker tag registry.k8s.io/sig-storage/livenessprobe:v2.10.0 cnzf/k8s.io:sig-storage.livenessprobe.v2.10.0
+          
       
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -56,10 +72,15 @@ jobs:
       - name: Push to Docker Registry
         run: |
           docker push cnzf/k8s.io:sig-storage.snapshot-controller.v6.2.2
+          docker push cnzf/k8s.io:sig-storage.csi-snapshotter.v6.2.1
           docker push cnzf/k8s.io:sig-storage.csi-snapshotter.v6.2.2
+          docker push cnzf/k8s.io:sig-storage.csi-resizer.v1.7.0
           docker push cnzf/k8s.io:sig-storage.csi-resizer.v1.8.0
+          docker push cnzf/k8s.io:sig-storage.csi-attacher.v4.1.0
           docker push cnzf/k8s.io:sig-storage.csi-attacher.v4.3.0
+          docker push cnzf/k8s.io:sig-storage.csi-provisioner.v3.4.0
           docker push cnzf/k8s.io:sig-storage.csi-provisioner.v3.5.0
+          docker push cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.7.0
           docker push cnzf/k8s.io:sig-storage.csi-node-driver-registrar.v2.8.0
           docker push cnzf/k8s.io:sig-storage.livenessprobe.v2.3.0
           docker push cnzf/k8s.io:sig-storage.livenessprobe.v2.10.0
