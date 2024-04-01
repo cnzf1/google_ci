@@ -46,6 +46,7 @@ jobs:
           docker pull registry.k8s.io/sig-storage/csi-resizer:v1.8.0
           docker tag registry.k8s.io/sig-storage/csi-resizer:v1.8.0 cnzf/k8s.io:sig-storage.csi-resizer.v1.8.0
 
+          # registry.aliyuncs.com/google_containers/csi-provisioner:v3.5.0
           docker pull registry.k8s.io/sig-storage/csi-provisioner:v3.4.0
           docker tag registry.k8s.io/sig-storage/csi-provisioner:v3.4.0 cnzf/k8s.io:sig-storage.csi-provisioner.v3.4.0
           docker pull registry.k8s.io/sig-storage/csi-provisioner:v3.5.0

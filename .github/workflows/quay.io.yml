@@ -30,6 +30,8 @@ jobs:
         run: |
           docker pull quay.io/cephcsi/cephcsi:v3.8.0
           docker tag quay.io/cephcsi/cephcsi:v3.8.0 cnzf/quay.io:cephcsi.cephcsi.v3.8.0
+          # quay.mirrors.ustc.edu.cn/ceph/ceph:v17.2.6
+          # quay.mirrors.ustc.edu.cn/cephcsi/cephcsi:v3.9.0
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
