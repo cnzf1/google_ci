@@ -32,6 +32,8 @@ jobs:
           docker tag gcr.io/distroless/static:latest cnzf/gcr.io:distroless.static.arm64-latest
           docker pull --platform linux/amd64 gcr.io/distroless/static:latest
           docker tag gcr.io/distroless/static:latest cnzf/gcr.io:distroless.static.amd64-latest
+          docker pull gcr.io/oss-fuzz-base/base-runner:latest
+          docker tag gcr.io/oss-fuzz-base/base-runner:latest cnzf/gcr.io:oss-fuzz-base.base-runner.latest
   
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -44,4 +46,5 @@ jobs:
         run: |
           docker push cnzf/gcr.io:distroless.static.arm64-latest
           docker push cnzf/gcr.io:distroless.static.amd64-latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-runner.latest
 
