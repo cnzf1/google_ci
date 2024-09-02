@@ -47,6 +47,10 @@ jobs:
           docker tag gcr.io/oss-fuzz-base/base-builder-python cnzf/gcr.io:oss-fuzz-base.base-builder-python.latest
           docker pull gcr.io/oss-fuzz-base/base-builder-rust
           docker tag gcr.io/oss-fuzz-base/base-builder-rust cnzf/gcr.io:oss-fuzz-base.base-builder-rust.latest
+          docker pull gcr.io/oss-fuzz-base/base-builder-ruby
+          docker tag gcr.io/oss-fuzz-base/base-builder-ruby cnzf/gcr.io:oss-fuzz-base.base-builder-ruby.latest
+          docker pull gcr.io/oss-fuzz-base/base-builder-swift
+          docker tag gcr.io/oss-fuzz-base/base-builder-swift cnzf/gcr.io:oss-fuzz-base.base-builder-swift.latest
           docker pull gcr.io/oss-fuzz-base/base-runner
           docker tag gcr.io/oss-fuzz-base/base-runner cnzf/gcr.io:oss-fuzz-base.base-runner.latest
           docker pull gcr.io/oss-fuzz-base/base-runner-debug
@@ -70,6 +74,8 @@ jobs:
           docker push cnzf/gcr.io:oss-fuzz-base.base-builder-jvm.latest
           docker push cnzf/gcr.io:oss-fuzz-base.base-builder-python.latest
           docker push cnzf/gcr.io:oss-fuzz-base.base-builder-rust.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-builder-ruby.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-builder-swift.latest
           docker push cnzf/gcr.io:oss-fuzz-base.base-runner.latest
           docker push cnzf/gcr.io:oss-fuzz-base.base-runner-debug.latest
 
