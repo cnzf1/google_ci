@@ -32,8 +32,25 @@ jobs:
           docker tag gcr.io/distroless/static:latest cnzf/gcr.io:distroless.static.arm64-latest
           docker pull --platform linux/amd64 gcr.io/distroless/static:latest
           docker tag gcr.io/distroless/static:latest cnzf/gcr.io:distroless.static.amd64-latest
-          docker pull gcr.io/oss-fuzz-base/base-runner:latest
-          docker tag gcr.io/oss-fuzz-base/base-runner:latest cnzf/gcr.io:oss-fuzz-base.base-runner.latest
+
+          docker pull gcr.io/oss-fuzz-base/base-image
+          docker tag gcr.io/oss-fuzz-base/base-image cnzf/gcr.io:oss-fuzz-base.base-image.latest
+          docker pull gcr.io/oss-fuzz-base/base-clang
+          docker tag gcr.io/oss-fuzz-base/base-clang cnzf/gcr.io:oss-fuzz-base.base-clang.latest
+          docker pull gcr.io/oss-fuzz-base/base-builder
+          docker tag gcr.io/oss-fuzz-base/base-builder cnzf/gcr.io:oss-fuzz-base.base-builder.latest
+          docker pull gcr.io/oss-fuzz-base/base-builder-go
+          docker tag gcr.io/oss-fuzz-base/base-builder-go cnzf/gcr.io:oss-fuzz-base.base-builder-go.latest
+          docker pull gcr.io/oss-fuzz-base/base-builder-jvm
+          docker tag gcr.io/oss-fuzz-base/base-builder-jvm cnzf/gcr.io:oss-fuzz-base.base-builder-jvm.latest
+          docker pull gcr.io/oss-fuzz-base/base-builder-python
+          docker tag gcr.io/oss-fuzz-base/base-builder-python cnzf/gcr.io:oss-fuzz-base.base-builder-python.latest
+          docker pull gcr.io/oss-fuzz-base/base-builder-rust
+          docker tag gcr.io/oss-fuzz-base/base-builder-rust cnzf/gcr.io:oss-fuzz-base.base-builder-rust.latest
+          docker pull gcr.io/oss-fuzz-base/base-runner
+          docker tag gcr.io/oss-fuzz-base/base-runner cnzf/gcr.io:oss-fuzz-base.base-runner.latest
+          docker pull gcr.io/oss-fuzz-base/base-runner-debug
+          docker tag gcr.io/oss-fuzz-base/base-runner-debug cnzf/gcr.io:oss-fuzz-base.base-runner-debug.latest
   
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -46,5 +63,13 @@ jobs:
         run: |
           docker push cnzf/gcr.io:distroless.static.arm64-latest
           docker push cnzf/gcr.io:distroless.static.amd64-latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-image.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-clang.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-builder.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-builder-go.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-builder-jvm.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-builder-python.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-builder-rust.latest
           docker push cnzf/gcr.io:oss-fuzz-base.base-runner.latest
+          docker push cnzf/gcr.io:oss-fuzz-base.base-runner-debug.latest
 
