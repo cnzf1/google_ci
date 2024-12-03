@@ -34,6 +34,8 @@ jobs:
           docker tag ghcr.io/slint-ui/slint/armv7-unknown-linux-gnueabihf:latest cnzf/ghcr.io:slint-ui.slint.armv7-unknown-linux-gnueabihf.latest
           docker pull --platform linux/amd64 ghcr.io/slint-ui/slint/x86_64-unknown-linux-gnu:latest
           docker tag ghcr.io/slint-ui/slint/x86_64-unknown-linux-gnu:latest cnzf/ghcr.io:slint-ui.slint.x86_64-unknown-linux-gnu.latest
+          docker pull --platform linux/amd64 ghcr.io/cross-rs/x86_64-pc-windows-gnu:0.2.5
+          docker tag ghcr.io/cross-rs/x86_64-pc-windows-gnu:0.2.5 cnzf/ghcr.io:cross-rs.x86_64-pc-windows-gnu.0.2.5
   
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -47,4 +49,5 @@ jobs:
           docker push cnzf/ghcr.io:cross-rs.aarch64-linux-android.0.2.5
           docker push cnzf/ghcr.io:slint-ui.slint.armv7-unknown-linux-gnueabihf.latest
           docker push cnzf/ghcr.io:slint-ui.slint.x86_64-unknown-linux-gnu.latest
+          docker push cnzf/ghcr.io:cross-rs.x86_64-pc-windows-gnu.0.2.5
 
